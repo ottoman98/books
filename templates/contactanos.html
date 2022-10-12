@@ -1,0 +1,29 @@
+{% extends 'layouts/base-nonav.html' %}
+
+{% block title %}
+    Contactanos | Books-Newlife
+{% endblock title %}
+
+{% load static %} {% block links %}
+<link rel="stylesheet" href="{% static '/styles/estilos.css' %}" />
+{%endblock links %}
+
+<br />
+
+{% block mainblock %}
+<section class="form-main">
+  <div class="form-content">
+    <div class="box">
+      <h3>Contactanos</h3>
+      <br />
+      <form action="{% url 'contactanos' %}" method="POST">
+        <div class="input-box">
+          {% csrf_token %} {{ form }}
+          <br />
+          <input type="submit" class= "btn" value="Enviar" />
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

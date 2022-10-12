@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %} <br />
+{% load static %} <br />
+
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/index_.css' %}" />
+{% endblock links %} 
+{% block title %}
+      Resultados de {{searched}} | Books-Newlife
+      {% endblock title %}
+<br />
+{% block mainblock %} <br />
+
+{% if searched %}
+
+<h2>Resultados de '< {{searched}} >'</h2>
+
+<div class="books-flex">
+  {% if result_longitud %}
+  {% for book in results %}
+  <div class="book">
+    <a href="{% url 'book_details' book.pk %} " target="_blank" alt=""
+      ><img src="/media/{{book.libro_img}}"
+    /></a>
+    <div class="info">
+      <h4>{{book.titulo}}</h4>
+      <p><b>Autor:</b> {{book.autor}}</p>
+      <p><b>Estado:</b> {{book.estado}}</p>
+      <p class="card-user">
+        <b>Subido por:</b><a href=""> {{book.usuario}}</a>
+      </p>
+    </div>
+  </div>
+  {% endfor %} <br />
+  {% else %}
+  <h2>No se encontraron resultados para '{{searched}}'</h2>
+  {% endif %}
+  
+</div>
+
+{% else %}
+<h2>Escribe algo en la barra de busqueda. </h2>
+
+{% endif %} <br />
+{% endblock %}

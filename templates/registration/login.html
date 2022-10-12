@@ -1,0 +1,30 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% block links %}
+
+<link rel="stylesheet" href="{% static '/styles/estilos.css' %}" />
+{% endblock links %} <br />
+{% block titulo %}
+      Iniciar sesión | Books-Newlife
+      {% endblock titulo %}
+{% block mainblock %}
+
+<section class="form-main">
+  <div class="form-content">
+    <div class="box">
+      <h3>Bienvenido</h3>
+
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          {{form.as_p}}
+          <button type="submit" class="btn">Iniciar sesión</button>
+        </form>
+        <p>
+          ¿No tienes una cuenta?
+          <a href="{% url 'signup' %}" class="gradient-text">Crear cuenta</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock mainblock %}

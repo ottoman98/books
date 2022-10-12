@@ -1,0 +1,37 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% block links %}
+
+<link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
+<link rel="stylesheet" href="{% static '/styles/libros_subidos.css' %}" />
+{% endblock links %} <br />
+{% block title %}Libros favoritos | Books-Newlife{% endblock title %}
+<br />
+{% block mainblock %}
+
+<div class="update-profile">
+  <div class="flex">
+    <form>
+      <h1>Tus libros favoritos</h1>
+      {% for book in books %}
+
+      <div class="book_item">
+        <div>
+          <img src="/media/{{book.libro_img}}" class="details_image" />
+          <h3>{{book.titulo|slice:'30'}}</h3>
+          <p><b>Autor: </b>{{book.autor}}</p>
+          <p><b>Categoria: </b>{{book.categoria}}</p>
+          <p><b>Estado: </b>{{book.estado}}</p>
+          <p><b>Subido: </b>{{book.fecha}}</p>
+        </div>
+        <div>
+          <a href="{% url 'contact' book.usuario.pk %}">Contactar</a>
+        </div>
+      </div>
+
+      {% endfor %}
+      <a href="{% url 'profile' %}" class="delete-btn">Volver a perfil</a>
+    </form>
+  </div>
+
+  {% endblock mainblock %}
+</div>

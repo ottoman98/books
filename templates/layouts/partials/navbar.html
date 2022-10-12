@@ -1,0 +1,118 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="{% static "icons/appicons/icono.png" %}" class="imagen-perfil">
+  </a>
+  <a class="navbar-brand" href="/">Books-Newlife</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse flex-wrap" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      {% if categories_menu %}
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Categorias
+        </a>
+        <div class="dropdown-menu position-absolute" aria-labelledby="navbarDropdown">
+          {% for category in categories_menu|slice:"10"  %}
+          <a class="dropdown-item" href="{% url 'category' category %}">{{category}}</a>
+          {% endfor %}
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Mas categorias</a>
+        </div>
+      </li><br>
+       {% endif %}
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0 search" method='POST' action='{% url 'search-bar' %}'>
+      {% csrf_token %}
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Buscar"
+        aria-label="Search"
+        name='searched'
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Buscar
+      </button>
+    </form>
+
+{% comment %} Desde aquí se probara la barra desplegable {% endcomment %}
+<ul class="navbar-nav mr-auto">
+  {% if user.is_authenticated %}
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      id="navbarDropdown"
+      role="button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+    {% if user.profile.profile_pic %}
+    <img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario" class="imagen-perfil">
+    {% else %}
+    <img
+        src="{% static 'images/default_images/default-avatar.png' %}"
+        alt="Imagen usuario" class="imagen-perfil"
+      />
+    {%endif %}
+    </a>
+    <div class="dropdown-menu position-absolute" aria-labelledby="navbarDropdown">
+      <a href="{% url 'profile' %}" class="nav-link">Perfil</a>
+      
+      {% if not user.profile %}
+      <a href="{% url 'profile_data' %}" class="nav-link">Registrar perfil</a>
+      {% endif %}
+
+      {% if user.profile %}
+      <a href="{% url 'add_book' %}" class="nav-link">Publicar Libro</a>
+      {% endif %}
+      
+      <a href="{% url 'libros_subidos' %}" class="nav-link">Ver mis libros</a>
+      <a href="{% url 'libros_favoritos' %}" class="nav-link">Ver mis favoritos</a>
+      
+      <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a> 
+    </div>
+</ul>
+
+{% comment %} Aqui termina la prueba {% endcomment %}
+
+
+      {% else %}
+      <li>
+        <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}">Registrase</a>
+      </li>
+
+      {% endif %}
+      </li>
+    </ul>
+  </div>
+</nav>

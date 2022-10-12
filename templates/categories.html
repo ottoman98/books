@@ -1,0 +1,75 @@
+{% extends 'layouts/base.html' %} <br />
+
+{% load static %} <br/>
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/index_.css' %}" />
+<link rel="stylesheet" href="{% static '/styles/categoria.css' %}">
+{% endblock links %} <br />
+{% block title %}
+      Categorias | {{cat}}
+      {% endblock title %}
+
+{% block mainblock %} <br />
+
+
+
+
+{% if category_books %}
+
+<div class="contenido">
+<h2 class="deal"><span>{{cat|title}}</span>
+  <div class="box-list">
+  <h5>Categorias:</h5>
+  <ul>
+    {% for category in categories_aside  %}
+    <li class="category-li"><a href="{% url 'category' category %}"><span>{{category}}</span></a></li>
+    {% endfor %}
+      
+      
+  </ul>
+</div>
+
+
+</h2>
+
+
+
+
+
+
+<div class="books-flex"> 
+
+
+
+
+
+
+  {% for book in category_books  %}
+  
+  <div class="book">
+    <a href="{% url 'book_details' book.pk %} " target="_blank" alt=""
+      ><img src="/media/{{book.libro_img}}"
+    /></a>
+    <div class="info">
+      <h4>{{book.titulo|slice:35|title}} {% if book.titulo|length > 35 %}...{% endif %}</h4>
+      
+      <p><b>Autor:</b> {{book.autor}}</p>
+      <p><b>Estado:</b> {{book.estado}}</p>
+      <p class="card-user">
+        <b>Subido por:</b><a href=""> {{book.usuario}}</a>
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+
+
+  
+  {% else %}
+  <h>No hay libros publicados en  esta categoria</h2>
+{% endif %}
+
+</div>
+
+
+
+{% endblock mainblock %}

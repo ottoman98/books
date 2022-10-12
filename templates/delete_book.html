@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %} <br />
+{% block titulo %}
+      Eliminar libro | Books-Newlife
+      {% endblock titulo %}
+{% block mainblock %} <br />
+{% if user.is_authenticated %}
+<h2>Borrar-{{object.titulo}}</h2>
+<form action="" method="POST">
+  <br />
+  {% csrf_token %} <br />
+  {{form.as_p}}
+  <strong>¿esta seguro que desea borrar su libro?</strong>
+  <button type="submit">Borrar</button>
+</form>
+
+{% else %}
+
+<h4>debes iniciar sesion</h4>
+
+{% endif %} {% endblock mainblock %}

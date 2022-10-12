@@ -1,0 +1,77 @@
+{% extends 'layouts/base.html' %} <br />
+{% load static %} <br />
+{% block title %}
+      Sobre nosotros | Books-Newlife
+      {% endblock title %}
+
+{% block links %}<link
+  rel="stylesheet"
+  href="{% static '/styles/nosotros.css' %}"
+/>{% endblock links %} <br />
+
+{% block mainblock %}
+
+<div class="about-section">
+  <h1>Qúienes Somos</h1>
+  <br />
+  <br />
+  <br />
+  <h1 class="titulo">Nuestra Historia</h1>
+  <h2>
+    Book-Newlife proporciona un medio fácil a sus clientes para comprar,
+    intercambiar y regalar libros contactando con varias personas al rededor del país. Para cualquier consulta, puedes enviarnos
+    un correo electrónico mediante contactanos, gracias por preferirnos y estamos trabajando para ser
+    mejores.
+  </h2>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
+
+<br />
+<br />
+
+<h2 class="our-team">Nuestro Equipo</h2>
+
+<div class="cards-container">
+  <div class="card">
+    <img src="{% static 'images/Fotos-team/osman.png' %}" alt="desarrolador"  class="fotos-team"/>
+    <p class="title">Desarrolador BackEnd</p>
+    <p>Osman Barros</p>
+    
+  </div>
+  <div class="card">
+    <img src="{% static 'images/Fotos-team/juan.png' %}" alt="desarrolador" class="fotos-team"/>
+    <p class="title">Desarrolador Fronted</p>
+    <p>Juan Sebastian Velasquez</p>
+    
+  </div>
+  <div class="card">
+    <img src="{% static 'images/Fotos-team/yinner.png' %}" alt="desarrolador" class="fotos-team"/>
+
+    <p class="title">Desarrolador BackEnd</p>
+    <p>Yinner Stiven Chilito</p>
+    
+  </div>
+  <div class="card">
+    <img
+      src="{% static 'images/Fotos-team/johnnathan.jpg' %}"
+      alt="desarrolador"
+      class="fotos-team"
+    />
+
+    <p class="title">Desarrolador Fronted</p>
+    <p>Johnnathan Hernandez</p>
+    
+  </div>
+  <div class="card">
+    <img src="{% static 'images/Fotos-team/rafael.png' %}" alt="desarrolador" class="fotos-team"/>
+
+    <p class="title">Tester</p>
+    <p>Rafael Ojito</p>
+    
+  </div>
+</div>
+{% endblock mainblock %}

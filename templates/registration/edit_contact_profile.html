@@ -1,0 +1,33 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% block links %}
+
+<link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
+{% endblock links %} 
+{% block titulo %}
+      Modificar información de contacto | Books-Newlife
+      {% endblock titulo %}
+<br />
+{% block mainblock %} {% comment %}
+<section class="form-main">
+  <div class="form-content">
+    <div class="box">
+      <h3>Bienvenido</h3>
+
+      <form action="" method="POST">
+        {% csrf_token %} {{form}}
+        <button type="submit">Actulizar datos</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endcomment %}
+
+<div class="update-profile">
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Modificar información de contacto del usuario</h3>
+    {{form.as_p}}
+  </form>
+</div>
+
+{% endblock mainblock %}

@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html' %} 
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/feedback.css' %}" />
+{% endblock links %}
+
+{% block titulo %}
+      Comentario | Books-Newlife
+      {% endblock titulo %}
+
+{% block mainblock %}
+<div class="mensaje">
+    <h1>¡Se ha enviado correctamente el comentario!</h1>
+    <img src="{% static 'icons/comprobado.png' %}" alt="comprobado">
+    <br>
+    <p><b>{{nombre}}</b>, muchas gracias por intentar contactarte con nosotros, leeremos tu comentario y tendremos en cuenta tu sugerencia para mejorar nuestra aplicación.</p>
+</div>
+{% endblock %}

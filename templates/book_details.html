@@ -1,0 +1,76 @@
+{% extends 'layouts/base.html' %} <br />
+{% load static %} <br />
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/book_details.css' %}" />
+{% endblock links %} <br />
+
+{% block title %}{{object.titulo}}|Books-NewLife{% endblock title %} <br />
+{% block mainblock %}
+<div class="details-box">
+  <div class="titulo-img">
+    <h2>{{object.titulo}}</h2>
+    <div>
+      {% if user.id == object.usuario_id %}
+
+      <a href="{% url 'update_book' object.pk %}">Editar</a>
+      <a href="{% url 'delete_book' object.pk %}">borrar</a>
+
+      {% endif %} <br />
+    </div>
+    <img src="/media/{{object.libro_img}}" class="details_image" />
+  </div>
+
+  <div class="book_body">
+    <ul>
+      {% if user.is_authenticated %}
+
+      <form action="{% url 'like_book' object.pk %}" method="POST">
+        {% csrf_token %} {% if liked %}
+        <li>
+          <button
+            type="submit"
+            name="book_id"
+            value="{{object.pk}}"
+            class="like_button"
+          >
+            Quitar de favoritos
+          </button>
+        </li>
+        {% else %}
+
+        <li>
+          <button
+            type="submit"
+            name="book_id"
+            value="{{object.pk}}"
+            class="like_button"
+          >
+            Agregar a favoritos
+          </button>
+        </li>
+
+        {% endif %} <br />
+      </form>
+      {% endif %}
+      <li><b>Autor:</b> {{object.autor}}</li>
+      <li><b>Editorial:</b> {{object.editorial}}</li>
+      <li><b>Intención:</b> {{object.intencion}}</li>
+
+      {% if object.cantidad < '1' %}
+      <li><b>Cantidad:</b> {{object.cantidad}}</li>
+      {% endif %} {% if object.intencion == 'Vender' %}
+      <li><b>Precio:</b> {{object.precio}}</li>
+      {% endif %}
+      <li><b>Estado:</b> {{object.estado}}</li>
+      <li><b>Usuario:</b> {{object.usuario}}</li>
+      <li><b>Subido:</b> {{object.fecha}}</li>
+      <li>
+        <b>Categoria:</b>
+        <a href="{% url 'category' object.categoria %}">{{object.categoria}}</a>
+      </li>
+    </ul>
+    <p class="reseña">{{object.reseña|safe}}</p>
+  </div>
+</div>
+
+{% endblock mainblock %}

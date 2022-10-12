@@ -1,0 +1,16 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} {% block links %}
+<link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
+{% endblock%} <br />
+{% block title%} Editar perfil | Books-Newlife {% endblock title %}
+<br />
+{% block mainblock %}
+
+<div class="form-container">
+  <form action="" method="POST" enctype="multipart/form-data">
+    <h3><b>Modificar datos de perfil y contacto</b></h3>
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" class="btn">Guardar cambios</button>
+  </form>
+</div>
+
+{% endblock mainblock %}

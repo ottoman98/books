@@ -1,0 +1,42 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% block links %}
+
+<link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
+{% endblock links %} <br />
+{% block title %} Modificar datos de usuario Books-newlife {% endblock title %}
+<br />
+{% block mainblock %}
+
+<div class="update-profile">
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Modificar información de usuario</h3>
+    <a title="Imagen" href="#"
+      ><img
+        src="{% static 'images/default_images/default-avatar.png' %}"
+        alt="Imagen usuario"
+    /></a>
+    <div class="flex">
+      <div class="inputBox">
+        <span>Nombre de usuario:</span>
+        {{form.username}}
+        <span>Nombre:</span>
+        {{form.first_name}}
+      </div>
+      <div class="inputBox">
+        <span>Apellido:</span>
+        {{form.last_name}}
+        <span>Correo electronico:</span>
+        {{form.email}}
+      </div>
+    </div>
+    <input
+      type="submit"
+      value="Actualizar Cambios"
+      name="update_profile"
+      class="btn"
+    />
+  </form>
+</div>
+
+{% endblock mainblock %}

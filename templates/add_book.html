@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %} <br />
+{% load static %} <br />
+{% block links %}<link
+  rel="stylesheet"
+  href="{% static '/styles/book_form.css' %}"
+/>{% endblock links %} <br />
+{% block title %}Publicar libro | Books-Newlife{% endblock title %} <br />
+{% block mainblock %}
+<h2>Publicar libro</h2>
+<form action="" method="POST" enctype="multipart/form-data" class="form">
+  <br />
+  {% csrf_token %}{{form.as_p}} {{ form.media }}
+
+  <i>formatos de imagen permitidos: .png, .gif, .jpeg, .jpg</i><br />
+  <button type="submit" class="form-btn">Subir</button>
+</form>
+{% endblock mainblock %}

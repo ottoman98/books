@@ -1,0 +1,51 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+
+{% block links %}
+<link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
+{% endblock links %} <br />
+
+{% block title %}Datos de contacto| {{contact.username}}{% endblock title %}
+<br />
+{% block mainblock %}
+
+<div class="update-profile">
+  <div class="flex">
+    <form id="contacto">
+      <h1>Datos de contacto: {{contact.username|title}}</h1>
+
+      <div class="book_item">
+        <div>
+          <img src="/media/{{contact2.profile_pic}}" class="details_image" />
+        </div>
+        <div class="flex">
+          <div class="inputBox">
+            <span>Nombre de usuario:</span>
+            {{contact.username}}
+            <span>Nombre:</span>
+            {{contact.first_name|title}}
+            <span>Apellido:</span>
+            {{contact.last_name|title}}
+            <span>Correo electronico:</span>
+            {{contact.email}}
+          </div>
+          <div class="inputBox">
+            <span>Departamento:</span>
+            {{contact2.departamento|title}}
+            <span>Población:</span>
+            {{contact2.direccion|title}}
+            <span>Telefono:</span>
+            {{contact2.telefono|title}}
+            <span>WhatsApp:</span>
+            {{contact2.whatsapp|title}}
+            <span>Facebook:</span>
+            {{contact2.facebook|title}}
+          </div>
+        </div>
+      </div>
+
+      <a href="{% url 'profile' %}" class="delete-btn">Volver a perfil</a>
+    </form>
+  </div>
+
+  {% endblock mainblock %}
+</div>

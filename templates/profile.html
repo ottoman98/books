@@ -1,0 +1,79 @@
+{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% block links %}
+
+<link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
+{% endblock links %} <br />
+{% block title %}Perfil | {{user.first_name|title}}{% endblock title %} <br />
+{% block mainblock %}
+
+<div class="update-profile">
+  <form>
+    {% csrf_token %}
+    <h3>Hola {{user.first_name|title}} {{user.last_name|title}}</h3>
+
+    {% if user.profile.profile_pic %}
+
+    <a title="Imagen" href="#"
+      ><img src="/media/{{user.profile.profile_pic}}" alt="Imagen usuario"
+    /></a>
+
+    {% else %}
+    <a
+      ><img
+        src="{% static 'images/default_images/default-avatar.png' %}"
+        alt="Imagen usuario"
+      />
+    </a>
+
+    {% endif %}
+
+    <div class="flex">
+      <div class="inputBox">
+        <span>Nombre de usuario:</span>
+        {{user.username}}
+        <span>Nombre:</span>
+        {{user.first_name|title}}
+        <span>Apellido:</span>
+        {{user.last_name|title}}
+        <span>Correo electronico:</span>
+        {{user.email}}
+      </div>
+      <div class="inputBox">
+        <span>Departamento:</span>
+        {{user.profile.departamento|title}}
+        <span>Dirección:</span>
+        {{user.profile.direccion|title}}
+        <span>Telefono:</span>
+        {{user.profile.telefono|title}}
+        <span>WhatsApp:</span>
+        {{user.profile.whatsapp|title}}
+        <span>Facebook:</span>
+        {{user.profile.facebook|title}}
+      </div>
+    </div>
+    <a href="{% url 'libros_subidos' %}" class="delete-btn"
+      >Mis libros subidos</a
+    >
+    <a href="{% url 'libros_favoritos' %}" class="delete-btn"
+      >Libros Favoritos</a
+    >
+    <a href="{% url 'edit_profile' %}" class="delete-btn"
+      >Modificar datos personales</a
+    >
+
+    {% if user.profile %}
+    <a href="{% url 'edit_profile_data' user.profile.pk%}" class="delete-btn"
+      >Modificar datos de contacto y perfil</a
+    >
+
+    {% else %}
+    <a href="{% url 'profile_data'%}" class="delete-btn"
+      >Agregar datos de contacto y perfil</a
+    >
+
+    {% endif %}
+    <a href="{% url 'recover' %}" class="delete-btn">Cambiar Contraseña</a>
+  </form>
+</div>
+
+{% endblock mainblock %}
