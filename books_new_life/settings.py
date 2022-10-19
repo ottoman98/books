@@ -18,7 +18,7 @@ SECRET_KEY = "django-insecure-l*0m^l$$-al(4q)4@f7viykph)l51ep+xyrs+btjpuov5(j^fb
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
-ALLOWED_HOSTS = ['booksnewlife.herokuapp.com']
+ALLOWED_HOSTS = ['booksnewlife.herokuapp.com', '127.0.0.1']
 
 
 # ALLOWED_HOSTS = []
