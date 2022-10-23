@@ -22,8 +22,13 @@
           <p><b>Categoria: </b>{{book.categoria}}</p>
           <p><b>Estado: </b>{{book.estado}}</p>
           <p><b>Subido: </b>{{book.fecha}}</p>
+
+          <p>{{book.usuario}}</p>
         </div>
         <div>
+          {% if book.usuario and 2 == 2 %}
+          <p>aaa</p>
+          {% endif %}
           <a href="{% url 'contact' book.usuario.pk %}">Contactar</a>
         </div>
       </div>
