@@ -12,7 +12,9 @@
   <div class="flex">
     <form>
       <h1>Tus libros favoritos</h1>
-      {% for book in books %}
+      {% for book in books %} <br />
+
+      <p>{{book.usuario.telefono}}</p>
 
       <div class="book_item">
         <div>
@@ -25,14 +27,12 @@
 
           <p>{{book.usuario}}</p>
         </div>
+        {% if book.usuario %}
         <div>
-          {% if book.usuario and 2 == 2 %}
-          <p>aaa</p>
-          {% endif %}
           <a href="{% url 'contact' book.usuario.pk %}">Contactar</a>
         </div>
+        {% endif %}
       </div>
-
       {% endfor %}
       <a href="{% url 'profile' %}" class="delete-btn">Volver a perfil</a>
     </form>
