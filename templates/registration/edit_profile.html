@@ -1,4 +1,4 @@
-{% extends 'layouts/base-nonav.html' %} {% load static %} <br />
+{% extends 'layouts/base-nonav.html' %} <br />{% load static %} <br />
 {% block links %}
 
 <link rel="stylesheet" href="{% static '/styles/perfil.css' %}" />
@@ -11,11 +11,6 @@
   <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <h3>Modificar información de usuario</h3>
-    <a title="Imagen" href="#"
-      ><img
-        src="{% static 'images/default_images/default-avatar.png' %}"
-        alt="Imagen usuario"
-    /></a>
     <div class="flex">
       <div class="inputBox">
         <span>Nombre de usuario:</span>

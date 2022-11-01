@@ -227,6 +227,7 @@ a.delete-btn {
   font-size: 17px;
   color: var(--black);
   margin-top: 10px;
+  border: 2px solid;
 }
 
 input#id_old_password {

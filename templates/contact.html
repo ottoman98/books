@@ -14,9 +14,17 @@
       <h1>Datos de contacto: {{contact.username|title}}</h1>
 
       <div class="book_item">
+        {% if contact2.profile_pic %}
         <div>
           <img src="/media/{{contact2.profile_pic}}" class="details_image" />
         </div>
+        {% else %}
+        <img
+          src="{% static 'images/default_images/default-avatar.png' %}"
+          alt="Imagen usuario"
+        />
+        {% endif %}
+
         <div class="flex">
           <div class="inputBox">
             <span>Nombre de usuario:</span>
