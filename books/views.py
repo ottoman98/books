@@ -100,7 +100,7 @@ def SearchView(request):
         searched = request.POST['searched']
         result = Books.objects.filter(titulo__icontains=searched)
         result_longitud = len(result) >= 1
-        print(result_longitud)
+        
 
         return render(request, 'search.html', {'searched': searched, 'results': result, 'result_longitud': result_longitud})
     else:

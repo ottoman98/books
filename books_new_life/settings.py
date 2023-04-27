@@ -18,7 +18,7 @@ SECRET_KEY = "django-insecure-l*0m^l$$-al(4q)4@f7viykph)l51ep+xyrs+btjpuov5(j^fb
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
-ALLOWED_HOSTS = ['booksnewlife.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # ALLOWED_HOSTS = []
@@ -74,14 +74,12 @@ WSGI_APPLICATION = "books_new_life.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3r6rks0podj7u',
-        'USER': 'brygagbgsihvwx',
-        'PASSWORD': '39468f1c9964fece9a97e0fe23d6ffd5aa5e1852caf8b0094812dfc2d9e8ce21',
-        'HOST': 'ec2-52-86-115-245.compute-1.amazonaws.com',
-        'PORT': '5432',
-
-
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'booksnewlife',
+        'USER':'booksnewlife_user',
+        'PASSWORD':'XsllSTKo50OdrRRquAABLJG8Xbjun7IY',
+        'HOST':'dpg-ch4qaviut4m6jh8umskg-a.oregon-postgres.render.com',
+        'DATABASE_PORT':'5432'
     }
 }
 
@@ -111,7 +109,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
