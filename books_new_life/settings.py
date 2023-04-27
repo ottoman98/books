@@ -16,7 +16,7 @@ SECRET_KEY = "django-insecure-l*0m^l$$-al(4q)4@f7viykph)l51ep+xyrs+btjpuov5(j^fb
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = []
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['books-rvhd.onrender.com']
 
 
 # ALLOWED_HOSTS = []
