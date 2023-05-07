@@ -1,11 +1,11 @@
 body {
   min-height: 100vh;
   position: relative;
+  background-color: red;
 }
 
 #section-2 {
   width: 100%;
-
   padding-top: 100px;
   display: flex;
   flex-wrap: wrap;
@@ -89,7 +89,7 @@ body {
   padding-bottom: 100px;
 }
 
-input[type='text'],
+input[type="text"],
 select,
 textarea {
   width: 100%;
@@ -100,7 +100,7 @@ textarea {
   resize: vertical;
 }
 
-input[type='submit'] {
+input[type="submit"] {
   background-color: #04aa6d;
   color: white;
   padding: 12px 20px;
@@ -108,7 +108,7 @@ input[type='submit'] {
   cursor: pointer;
 }
 
-input[type='submit']:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -126,7 +126,7 @@ input[type='submit']:hover {
 }
 
 .row:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
