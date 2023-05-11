@@ -1,6 +1,0 @@
-.book_item {
-  display: flex;
-  flex-direction: row;
-  margin: 30px;
-  border-bottom: 1px black solid;
-}
