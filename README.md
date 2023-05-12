@@ -3,6 +3,10 @@
 
 Book-Newlife es una aplicación web desarrollada con Django que proporciona a los usuarios una forma fácil de comprar, intercambiar y regalar libros.
 
+## Enlace
+![Books New Life]https://books-rvhd.onrender.com
+
+
 # Características
 Una vez que se registre una cuenta y se verifique la identidad del usuario, puede tener acceso a las distintas funcionalidades que esta ofrece la página web..
 
@@ -38,6 +42,4 @@ En este espacio podrá modificar los campos de nombre de usuario apellido, en ca
 Esta ventana está vinculada a adquirir libro, esta le permite tener contacto con el usuario que ofrece el producto e intermediar de manera directa con él.
 
 
-## Enlace
-https://books-rvhd.onrender.com
 
