@@ -73,11 +73,10 @@ WSGI_APPLICATION = "books_new_life.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'booksnewlife',
-        'USER':'booksnewlife_user',
-        'PASSWORD':'XsllSTKo50OdrRRquAABLJG8Xbjun7IY',
-        'HOST':'dpg-ch4qaviut4m6jh8umskg-a.oregon-postgres.render.com',
-        'DATABASE_PORT':'5432'
+        'NAME': 'books',
+        'USER':'books_user',
+        'PASSWORD':'books123',
+       
     }
 }
 
